@@ -19,22 +19,22 @@ provider "aws" {
 }
 
 module "vpc" {
-source = "git@github.com:IvanGavrilov777/refactor-vpc.git"
+source = "github.com/IvanGavrilov777/refactor-vpc"
 }
 
 module "security" {
-source = "git@github.com:IvanGavrilov777/refactor-security.git"
+source = "github.com/IvanGavrilov777/refactor-security"
 vpc_id = module.vpc.vpc_id
 }
 
 module "vm" {
-source = "git@github.com:IvanGavrilov777/refactor-vm.git"
+source = "github.com/IvanGavrilov777/refactor-vm"
 VM_sec_group = module.security.VM_sec_group
 private_subnet_id = module.vpc.private_subnet_id
 }
 
 module "elb" {
-source = "git@github.com:IvanGavrilov777/refactor-elb.git"
+source = "github.com/IvanGavrilov777/refactor-elb"
 public_subnet_id = module.vpc.public_subnet_id
 elb_security_group = module.security.elb_security_group
 aws_instance_web_id = module.vm.aws_instance_web_id
