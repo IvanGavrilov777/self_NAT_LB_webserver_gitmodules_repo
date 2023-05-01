@@ -1,10 +1,5 @@
+#for VCS-driven runs
 terraform {
-  cloud {
-    organization = "ivan-testing"
-    workspaces {
-      name = "self_NAT_LB_webserver_localmodules"
-    }
-  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
