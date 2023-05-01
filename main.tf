@@ -35,7 +35,7 @@ private_subnet_id = module.vpc.private_subnet_id
 
 module "elb" {
 source = "github.com/IvanGavrilov777/refactor-elb"
-#public_subnet_id = module.vpc.public_subnet_id
+public_subnet_id = module.vpc.public_subnet_id
 elb_security_group = module.security.elb_security_group
 aws_instance_web_id = module.vm.aws_instance_web_id
 }
